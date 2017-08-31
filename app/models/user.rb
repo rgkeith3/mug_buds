@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  
+  has_many :mugs, dependent: :destroy,
+    foreign_key: :owner_id
 end
